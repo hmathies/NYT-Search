@@ -1,22 +1,22 @@
-var express = require('express');
-var bodyParser = require("body-parser");
-var axios = require("axios");
-var mongoose = require("mongoose");
-var request = require('request');
-var mongodb = require("mongodb");
+const express = require('express');
+const bodyParser = require("body-parser");
+const axios = require("axios");
+const mongoose = require("mongoose");
+const request = require('request');
+const mongodb = require("mongodb");
 
 
 //will need to change this for production
-var port = process.env.PORT || 3001;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytsearch";
+const port = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytsearch";
 
 //initialize express
-var app = express();
+const app = express();
 // Serve up static assets
 app.use(express.static("client/build"));
 
 // Require all models
-// var db = require("./models");
+// const db = require("./models");
 
 
 // Configure middleware
@@ -37,7 +37,7 @@ mongoose.connect(MONGODB_URI, {
 });
 
 mongoose.Promise = global.Promise;
-var dbConn = mongoose.connection;
+const dbConn = mongoose.connection;
 
 //check connection
 dbConn.once('open', function() {
