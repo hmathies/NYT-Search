@@ -1,5 +1,5 @@
 {
-  "name": "NYT-Search",
+  "name": "nytreact",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -24,6 +24,7 @@
     "express": "^4.15.4",
     "mongodb": "^3.0.1",
     "mongoose": "^4.13.9",
+    "path": "^0.12.7",
     "request": "^2.83.0"
   }
 }

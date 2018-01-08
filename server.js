@@ -4,6 +4,7 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const request = require('request');
 const mongodb = require("mongodb");
+const path = require("path");
 
 
 //will need to change this for production
@@ -29,7 +30,7 @@ app.use(bodyParser.urlencoded({
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(routes);
+// app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, {
