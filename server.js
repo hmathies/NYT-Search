@@ -21,7 +21,6 @@ app.use(express.static("client/build"));
 
 // Configure middleware
 
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
   extended: false
