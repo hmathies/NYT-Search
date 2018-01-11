@@ -26,8 +26,8 @@ class Articles extends Component {
         <Row>
           <Col size="md-offset-3 md-6">
             <Jumbotron>
-              <h2>Search</h2>
-            <form>
+              <h3 style={{textAlign:'center', backgroundColor: 'lightgray'}}>Search for Articles</h3>
+            <form style={{textAlign:'center'}}>
               <div style={{margin: 10}}>
                 <label htmlFor="topic">Topic</label>
                 <Input name="topic" placeholder=" Obama" ></Input>
@@ -46,12 +46,12 @@ class Articles extends Component {
           </Col>
           <Col size="md-offset-3 md-6">
             <Jumbotron>
-              <h2>Search Results</h2>
+              <h3 style={{textAlign:'center', backgroundColor: 'lightgray'}}>Search Results</h3>
             </Jumbotron>
           </Col>
           <Col size="md-offset-3 md-6">
             <Jumbotron>
-              <h2>Saved Articles</h2>
+              <h3 style={{textAlign:'center', backgroundColor: 'lightgray'}}>Saved Articles</h3>
             </Jumbotron>
           </Col>
         </Row>
