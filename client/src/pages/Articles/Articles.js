@@ -2,6 +2,7 @@ import  React, { Component } from 'react';
 import API from '../../utilis/API';
 import { Col, Row, Container} from "../../components/Grid";
 import Jumbotron from '../../components/Jumbotron';
+import { Input, FormBtn } from '../../components/Form';
 
 class Articles extends Component {
   state= {
@@ -25,33 +26,32 @@ class Articles extends Component {
         <Row>
           <Col size="md-offset-3 md-6">
             <Jumbotron>
-              <h1>Search Form</h1>
-
+              <h2>Search</h2>
             <form>
-              <div>
-                <label htmlfor="topic">Topic</label>
-                <input name="topic" placeholder="Obama"></input>
+              <div style={{margin: 10}}>
+                <label htmlFor="topic">Topic</label>
+                <Input name="topic" placeholder=" Obama" ></Input>
               </div>
-              <div>
-                <label htmlfor="start-year">Start Year</label>
-                <input name="start-year" placeholder="2012"></input>
+              <div style={{margin: 10}}>
+                <label htmlFor="start-year">Start Year</label>
+                <Input name="start-year" placeholder=" 2012"></Input>
               </div>
-              <div>
-                <label htmlfor="end-year" placeholder="2018">End Year</label>
-                <input name="end-year"></input>
+              <div style={{margin: 10}}>
+                <label htmlFor="end-year">End Year</label>
+                <Input name="end-year" placeholder=" 2018"></Input>
               </div>
-              <button>Search</button>
+              <FormBtn>Search</FormBtn>
             </form>
             </Jumbotron>
           </Col>
-          <Col size="md-12">
+          <Col size="md-offset-3 md-6">
             <Jumbotron>
-              <h1>Search Results</h1>
+              <h2>Search Results</h2>
             </Jumbotron>
           </Col>
-          <Col size="md-12">
+          <Col size="md-offset-3 md-6">
             <Jumbotron>
-              <h1>Saved Articles</h1>
+              <h2>Saved Articles</h2>
             </Jumbotron>
           </Col>
         </Row>

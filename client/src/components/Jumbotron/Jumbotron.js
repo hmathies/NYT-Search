@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Jumbotron = ({ children }) =>
-  <div style={{ height: 200, clear: 'both'}} className='Jumbotron'>
+  <div style={{ height: 400, clear: 'both'}} className='Jumbotron'>
     {children}
   </div>;
 
