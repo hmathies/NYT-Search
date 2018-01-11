@@ -6,19 +6,41 @@ import { Input, FormBtn } from '../../components/Form';
 
 class Articles extends Component {
   state= {
-    articles: []
+    articles: [],
+    savedArticles: [],
+    topic: "",
+    startYear: "",
+    endYear: ""
   }
 
 
   ComponentDidMount(){
     this.loadArticles();
-  }
+  };
+
+  handleInputChange = event => {
+   this.setState({ topic: event.target.value, startYear: event.target.value, endYear: event.target.value });
+ };
 
   loadArticles = () =>{
     API.getArticles()
       .then(res => this.setState({articles: res.data}))
       .catch(error => console.log(error));
   };
+
+  //api call
+  searchArticles = query =>  {
+  fetch('https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3665355e36be4471abd55f1fb42c279b&query=' + query)
+  .then(results => {
+    return results.json()
+  })
+  .then(data => {
+    console.log(data.response.docs)
+    this.setState({ articles: data.response.docs })
+  })
+  .catch(error => console.log(error))
+}
+
 
   render () {
     return (
@@ -30,15 +52,30 @@ class Articles extends Component {
             <form style={{textAlign:'center'}}>
               <div style={{margin: 10}}>
                 <label htmlFor="topic">Topic</label>
-                <Input name="topic" placeholder=" Obama" ></Input>
+                <Input
+                  value={this.state.topic}
+                  onChange={this.handleInputChange}
+                  name="topic"
+                  placeholder=" Obama"
+                />
               </div>
               <div style={{margin: 10}}>
                 <label htmlFor="start-year">Start Year</label>
-                <Input name="start-year" placeholder=" 2012"></Input>
+                <Input
+                  value={this.state.startYear}
+                  onChange={this.handleInputChange}
+                  name="start-year"
+                  placeholder=" 2012"
+                  />
               </div>
               <div style={{margin: 10}}>
                 <label htmlFor="end-year">End Year</label>
-                <Input name="end-year" placeholder=" 2018"></Input>
+                <Input
+                  value={this.state.endYear}
+                  onChange={this.handleInputChange}
+                  name="end-year"
+                  placeholder=" 2018"
+                />
               </div>
               <FormBtn>Search</FormBtn>
             </form>
