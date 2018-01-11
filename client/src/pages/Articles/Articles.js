@@ -23,9 +23,25 @@ class Articles extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col size="md-offset-3 md-6">
             <Jumbotron>
               <h1>Search Form</h1>
+
+            <form>
+              <div>
+                <label htmlfor="topic">Topic</label>
+                <input name="topic" placeholder="Obama"></input>
+              </div>
+              <div>
+                <label htmlfor="start-year">Start Year</label>
+                <input name="start-year" placeholder="2012"></input>
+              </div>
+              <div>
+                <label htmlfor="end-year" placeholder="2018">End Year</label>
+                <input name="end-year"></input>
+              </div>
+              <button>Search</button>
+            </form>
             </Jumbotron>
           </Col>
           <Col size="md-12">
