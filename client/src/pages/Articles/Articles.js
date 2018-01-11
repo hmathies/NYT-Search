@@ -1,6 +1,7 @@
 import  React, { Component } from 'react';
 import API from '../../utilis/API';
-
+import { Col, Row, Container} from "../../components/Grid";
+import Jumbotron from '../../components/Jumbotron';
 
 class Articles extends Component {
   state= {
@@ -20,7 +21,26 @@ class Articles extends Component {
 
   render () {
     return (
-      <h3>hi</h3>
+      <Container fluid>
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1>Search Form</h1>
+            </Jumbotron>
+          </Col>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1>Search Results</h1>
+            </Jumbotron>
+          </Col>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1>Saved Articles</h1>
+            </Jumbotron>
+          </Col>
+        </Row>
+      </Container>
+
     )
   }
 }
