@@ -5,7 +5,7 @@ import Jumbotron from '../../components/Jumbotron';
 import { Input, FormBtn } from '../../components/Form';
 
 class Articles extends Component {
-  state= {
+  state = {
     articles: [],
     savedArticles: [],
     topic: "",
@@ -13,34 +13,28 @@ class Articles extends Component {
     endYear: ""
   }
 
+  handleInputChange = event => {
+   this.setState({ topic: event.target.value });
+  };
 
-  ComponentDidMount(){
+  handleStartDateChange = event => {
+    this.setState({ startYear: event.target.value });
+  };
+
+  handleEndDateChange = event => {
+   this.setState({ endYear: event.target.value });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault()
     this.loadArticles();
   };
 
-  handleInputChange = event => {
-   this.setState({ topic: event.target.value, startYear: event.target.value, endYear: event.target.value });
- };
-
   loadArticles = () =>{
-    API.getArticles()
-      .then(res => this.setState({articles: res.data}))
+    API.searchArticles(this.state.startYear, this.state.endYear, this.state.topic)
+      .then(res => this.setState({articles: res.data.response.docs}))
       .catch(error => console.log(error));
   };
-
-  //api call
-  searchArticles = query =>  {
-  fetch('https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3665355e36be4471abd55f1fb42c279b&query=' + query)
-  .then(results => {
-    return results.json()
-  })
-  .then(data => {
-    console.log(data.response.docs)
-    this.setState({ articles: data.response.docs })
-  })
-  .catch(error => console.log(error))
-}
-
 
   render () {
     return (
@@ -63,21 +57,21 @@ class Articles extends Component {
                 <label htmlFor="start-year">Start Year</label>
                 <Input
                   value={this.state.startYear}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleStartDateChange}
                   name="start-year"
-                  placeholder=" 2012"
+                  placeholder="Format: YYYYMMDD"
                   />
               </div>
               <div style={{margin: 10}}>
                 <label htmlFor="end-year">End Year</label>
                 <Input
                   value={this.state.endYear}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleEndDateChange}
                   name="end-year"
-                  placeholder=" 2018"
+                  placeholder="Format: YYYYMMDD"
                 />
               </div>
-              <FormBtn>Search</FormBtn>
+              <FormBtn onClick={this.handleFormSubmit}>Search</FormBtn>
             </form>
             </Jumbotron>
           </Col>
