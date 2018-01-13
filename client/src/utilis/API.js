@@ -10,6 +10,7 @@ export default {
     console.log('HI');
     return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3665355e36be4471abd55f1fb42c279b&begin_date="
                       + begin_date + "&end_date=" + end_date + "&q=" + query);
+
   },
 
   // Gets the article with the given id

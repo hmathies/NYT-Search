@@ -78,6 +78,18 @@ class Articles extends Component {
           <Col size="md-offset-3 md-6">
             <Jumbotron>
               <h3 style={{textAlign:'center', backgroundColor: 'lightgray'}}>Search Results</h3>
+              {this.state.articles.length ? (
+              <div>{this.state.articles.map(article => (
+                  <ul key={article._id}>
+                    <a href={"/articles/" + article._id}><h4>{article.headline.main}</h4></a>
+                    <h5>{article.snippet}</h5>
+                    <button data-id={article._id}>Save</button>
+                  </ul>
+                  ))}
+              </div>
+              ) : (
+              <h3>No Results to Display</h3>
+              )}
             </Jumbotron>
           </Col>
           <Col size="md-offset-3 md-6">
