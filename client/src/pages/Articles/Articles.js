@@ -13,6 +13,7 @@ class Articles extends Component {
     endYear: ""
   }
 
+
   handleInputChange = event => {
    this.setState({ topic: event.target.value });
   };
